@@ -29,6 +29,6 @@ public class main {
 		}else {
 			System.out.println("%, this is a strong password.");
 		}
-			System.out.print("Exiting Program...");
+		System.out.print("Exiting Program...");
 	}
 }
