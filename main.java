@@ -1,20 +1,20 @@
 import java.util.Scanner;
 public class main {
+	//goes through every character in the password
+	//and gives points depending on the type of character
+	//returns a percentage of strength
 	public static double test_strength(String password) {
 		double score=0;
-		String lower="abcdefghijklmnopqrstuvwxyz";
-		String upper=lower.toUpperCase();
-		String numbers="1234567890";
-		String symbols=" !@#$%^&*()-_=+`~,<.>/?':;{[}]|\'"+'"';
 		for(int i=0;i<password.length();i++) {
-			score+=2;
-			if(lower.indexOf(password.charAt(i))!=-1) {score+=2;}
-			if(upper.indexOf(password.charAt(i))!=-1) {score+=2;}
-			if(numbers.indexOf(password.charAt(i))!=-1) {score+=5;}
-			if(symbols.indexOf(password.charAt(i))!=-1) {score+=7;}
+			if(Character.isUpperCase(password.charAt(i))) {score+=4;}
+			else if(Character.isLowerCase(password.charAt(i))){score+=4;}
+			else if(Character.isDigit(password.charAt(i))) {score+=7;}
+			else{score+=9;}
 		}
 		return (score/200);
 	}
+	//takes in a password from user, calculates the strength,
+	//and rates the strength
 	public static void main(String args[]) {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please enter password:");
